@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gE1-WK-HeC">
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dashboard View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DashboardViewController" customModule="LexiLens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nF0-Qk-edN">
+                                <rect key="frame" x="99" y="506" width="242" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.22745098039215686" green="0.14901960784313725" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="doc.viewfinder.fill" catalog="system" title="Scan New Document" imagePadding="4">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.91764705882352937" green="0.8784313725490196" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="scanDocumentTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CyP-K3-bly"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload or scan a new document to begin the contract analysis." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vx-gf-qHH">
+                                <rect key="frame" x="61" y="321" width="319" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.84313725490196079" green="0.80000000000000004" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LexiLensLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XwO-wc-d0g">
+                                <rect key="frame" x="120" y="178" width="200" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGX-uf-gzq">
+                                <rect key="frame" x="121" y="601" width="199" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="clock.arrow.circlepath" catalog="system" title="Recent Documents" imagePadding="4">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                    <color key="baseForegroundColor" red="0.84313725490196079" green="0.80000000000000004" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="mBO-ht-rcJ" kind="show" identifier="goToHistory" id="EPj-ph-YOB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.082352941176470587" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qBb-uI-cwO"/>
+                    <connections>
+                        <segue destination="baT-re-IVD" kind="show" identifier="goToPreview" id="yXb-GO-c0Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969.54545454545462" y="136.82008368200837"/>
+        </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="EQm-qE-IXK">
+            <objects>
+                <tableViewController id="mBO-ht-rcJ" customClass="HistoryTableViewController" customModule="LexiLens" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5Af-e9-xC6">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.082352941176470587" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="100" id="VDw-VX-IbL" customClass="HistoryTableViewCell" customModule="LexiLens" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="440" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VDw-VX-IbL" id="erb-ZZ-LM8">
+                                    <rect key="frame" x="0.0" y="0.0" width="440" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFp-jo-6nK" userLabel="riskBadgeView">
+                                            <rect key="frame" x="16" y="12" width="4" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="4" id="a0D-Lb-9L1"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CRITICAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snZ-mL-oLR" userLabel="riskLevelLabel">
+                                            <rect key="frame" x="32" y="14" width="66" height="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today, 14:44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqp-rW-dN3" userLabel="dateLabel">
+                                            <rect key="frame" x="351" y="15" width="73" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="This freelance development agreement contains several clauses that require careful review." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSn-BU-4wP" userLabel="summaryLabel">
+                                            <rect key="frame" x="32" y="39" width="392" height="49"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.84313725490196079" green="0.80000000000000004" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="snZ-mL-oLR" firstAttribute="top" secondItem="erb-ZZ-LM8" secondAttribute="top" constant="14" id="0bb-1j-m51"/>
+                                        <constraint firstItem="Yqp-rW-dN3" firstAttribute="centerY" secondItem="snZ-mL-oLR" secondAttribute="centerY" id="4NA-PC-8Uw"/>
+                                        <constraint firstItem="xFp-jo-6nK" firstAttribute="leading" secondItem="erb-ZZ-LM8" secondAttribute="leading" constant="16" id="D2D-X0-jQc"/>
+                                        <constraint firstAttribute="bottom" secondItem="xFp-jo-6nK" secondAttribute="bottom" constant="12" id="KtA-fz-TLA"/>
+                                        <constraint firstAttribute="trailing" secondItem="YSn-BU-4wP" secondAttribute="trailing" constant="16" id="UrL-VR-rvo"/>
+                                        <constraint firstItem="YSn-BU-4wP" firstAttribute="leading" secondItem="xFp-jo-6nK" secondAttribute="trailing" constant="12" id="W2F-De-oQb"/>
+                                        <constraint firstAttribute="bottom" secondItem="YSn-BU-4wP" secondAttribute="bottom" constant="12" id="YNt-pj-83l"/>
+                                        <constraint firstItem="YSn-BU-4wP" firstAttribute="top" secondItem="snZ-mL-oLR" secondAttribute="bottom" constant="8" id="fBf-Ml-Gr8"/>
+                                        <constraint firstAttribute="trailing" secondItem="Yqp-rW-dN3" secondAttribute="trailing" constant="16" id="pma-eQ-qrh"/>
+                                        <constraint firstItem="snZ-mL-oLR" firstAttribute="leading" secondItem="xFp-jo-6nK" secondAttribute="trailing" constant="12" id="y8J-9u-uf1"/>
+                                        <constraint firstItem="xFp-jo-6nK" firstAttribute="top" secondItem="erb-ZZ-LM8" secondAttribute="top" constant="12" id="zHN-gp-7t2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.22745098039215686" green="0.14901960784313725" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dateLabel" destination="Yqp-rW-dN3" id="Psf-mc-Nbc"/>
+                                    <outlet property="riskBadgeView" destination="xFp-jo-6nK" id="Fae-D0-Wsd"/>
+                                    <outlet property="riskLevelLabel" destination="snZ-mL-oLR" id="IQD-91-p2x"/>
+                                    <outlet property="summaryLabel" destination="YSn-BU-4wP" id="KMF-3J-Xt1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mBO-ht-rcJ" id="x91-wV-aE6"/>
+                            <outlet property="delegate" destination="mBO-ht-rcJ" id="3Gf-Bx-F7j"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="XrS-dq-q8p"/>
+                    <connections>
+                        <segue destination="BYN-le-ZTu" kind="show" identifier="goToResultsFromHistory" id="rIn-xS-xit"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IFT-4o-5Xh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3636.818181818182" y="848.53556485355648"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="Dip-ND-prt">
+            <objects>
+                <viewController id="baT-re-IVD" customClass="ScannerViewController" customModule="LexiLens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bdZ-bR-Jn1">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LexiLensLogo" translatesAutoresizingMaskIntoConstraints="NO" id="KHC-nO-2qe">
+                                <rect key="frame" x="120" y="178" width="200" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z46-SD-UbD">
+                                <rect key="frame" x="29" y="423" width="184" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.14901960780000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="camera.viewfinder" catalog="system" title="Camera" imagePadding="4">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.91764705879999997" green="0.87843137250000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="baT-re-IVD" eventType="touchUpInside" id="Yac-WW-CZz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWc-na-pla">
+                                <rect key="frame" x="227" y="423" width="184" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.14901960780000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="photo.on.rectangle" catalog="system" title="Photo Library" imagePadding="4">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.91764705879999997" green="0.87843137250000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="galleryButtonPressed:" destination="baT-re-IVD" eventType="touchUpInside" id="ilk-Lv-SRB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBJ-lS-Zua">
+                                <rect key="frame" x="29" y="542" width="184" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.14901960780000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="folder.fill" catalog="system" title="Browse Files" imagePadding="4">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.91764705879999997" green="0.87843137250000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="filesButtonPressed:" destination="baT-re-IVD" eventType="touchUpInside" id="Qob-Md-EUr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSE-vX-KUB">
+                                <rect key="frame" x="227" y="542" width="184" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.14901960780000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="doc.on.clipboard" catalog="system" title="Paste Text" imagePadding="4">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.91764705879999997" green="0.87843137250000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="q9v-02-lax" kind="presentation" id="1r4-BB-Ca1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LjJ-gw-JiU"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.082352941176470587" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HWo-xF-lXP"/>
+                    <connections>
+                        <segue destination="Yf6-bF-Xag" kind="show" identifier="goToPrivacy" id="sD2-BF-SCB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Jg-M5-gpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791.818181818182" y="136.82008368200837"/>
+        </scene>
+        <!--Processing View Controller-->
+        <scene sceneID="dgs-Io-zAL">
+            <objects>
+                <viewController id="0Ee-9A-hvm" customClass="ProcessingViewController" customModule="LexiLens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hWF-lv-myl">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LexiLensLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rrm-Pc-buM">
+                                <rect key="frame" x="120" y="178" width="200" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="MfW-vn-rA7">
+                                <rect key="frame" x="210" y="468" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The contract data is being prepared..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txV-TL-Jsd">
+                                <rect key="frame" x="71" y="525" width="299" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.91764705879999997" green="0.87843137250000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8yZ-ba-aNc"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.082352941176470587" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Tf-UQ-kXQ"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="MfW-vn-rA7" id="Tep-vZ-nuv"/>
+                        <outlet property="statusLabel" destination="txV-TL-Jsd" id="93c-7v-cM7"/>
+                        <segue destination="BYN-le-ZTu" kind="show" identifier="goToResults" id="MCd-mZ-7q7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IUE-MT-bJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3461" y="137"/>
+        </scene>
+        <!--Text View Controller-->
+        <scene sceneID="4Wl-BC-ZhU">
+            <objects>
+                <viewController id="q9v-02-lax" customClass="TextViewController" customModule="LexiLens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Uf-eB-2Ov">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="894"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DWT-Ws-6tQ">
+                                <rect key="frame" x="39" y="85" width="363" height="630"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.22745098039215686" green="0.14901960784313725" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.84313725490196079" green="0.80000000000000004" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-HB-VQ1">
+                                <rect key="frame" x="81" y="752" width="278" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.14901960780000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="doc.text.magnifyingglass" catalog="system" title="Protect &amp; Review Text" imagePadding="4">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.91764705879999997" green="0.87843137250000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="analyzeTextButtonPressed:" destination="q9v-02-lax" eventType="touchUpInside" id="BkI-rZ-wLK"/>
+                                    <action selector="galleryButtonPressed:" destination="baT-re-IVD" eventType="touchUpInside" id="M0W-wW-ovr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="J4i-iQ-fgD"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.082352941176470587" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputTextView" destination="DWT-Ws-6tQ" id="1C3-t8-oCs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hd1-0V-Gh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2602" y="-568"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="EV8-J8-gdc">
+            <objects>
+                <viewController id="BYN-le-ZTu" customClass="ResultsViewController" customModule="LexiLens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pzx-YS-Pyl">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1Op-SQ-igE"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.082352941176470587" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b0d-WM-C2f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvv-Vp-BZU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4379" y="137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oAM-DZ-uRU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gE1-WK-HeC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6r-TQ-MFo">
+                        <rect key="frame" x="0.0" y="124" width="440" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="n96-bD-PGx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zfp-gy-9Xf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="137"/>
+        </scene>
+        <!--Privacy Review View Controller-->
+        <scene sceneID="obR-yd-GZa">
+            <objects>
+                <viewController id="Yf6-bF-Xag" customClass="PrivacyReviewViewController" customModule="LexiLens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B8j-Pw-OmU">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LexiLensLogo" translatesAutoresizingMaskIntoConstraints="NO" id="aFQ-VW-Yzm">
+                                <rect key="frame" x="120" y="178" width="200" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gmm-wa-9ij">
+                                <rect key="frame" x="20" y="292" width="400" height="470"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.22745098039215686" green="0.14901960784313725" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.84313725490196079" green="0.80000000000000004" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQS-Jc-S0r">
+                                <rect key="frame" x="81" y="800" width="278" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.14901960780000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="text.viewfinder" catalog="system" title="Analyze Text" imagePadding="4">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.91764705879999997" green="0.87843137250000003" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="analyzeSecurelyPressed:" destination="Yf6-bF-Xag" eventType="touchUpInside" id="HUO-Ol-d4i"/>
+                                    <action selector="analyzeTextButtonPressed:" destination="q9v-02-lax" eventType="touchUpInside" id="epK-T1-0LK"/>
+                                    <action selector="galleryButtonPressed:" destination="baT-re-IVD" eventType="touchUpInside" id="bH1-wx-ycQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nCh-MN-w7H"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.08235294118" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XNG-Af-V6B"/>
+                    <connections>
+                        <outlet property="textView" destination="gmm-wa-9ij" id="nCK-am-RQG"/>
+                        <segue destination="0Ee-9A-hvm" kind="show" identifier="goToProcessing" id="01z-l3-c68"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YAQ-8a-b4d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2601.818181818182" y="136.82008368200837"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rIn-xS-xit"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="LexiLensLogo" width="144.66667175292969" height="41"/>
+        <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="clock.arrow.circlepath" catalog="system" width="128" height="119"/>
+        <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
+        <image name="doc.text.magnifyingglass" catalog="system" width="106" height="128"/>
+        <image name="doc.viewfinder.fill" catalog="system" width="128" height="115"/>
+        <image name="folder.fill" catalog="system" width="128" height="96"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="98"/>
+        <image name="text.viewfinder" catalog="system" width="128" height="115"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

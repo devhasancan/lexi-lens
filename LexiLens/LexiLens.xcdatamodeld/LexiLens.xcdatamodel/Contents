@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24837" systemVersion="25E253" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Report" representedClassName="Report" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="keyDatesData" optional="YES" attributeType="Binary"/>
+        <attribute name="riskLevel" attributeType="String"/>
+        <attribute name="summary" attributeType="String"/>
+        <attribute name="threatsData" optional="YES" attributeType="Binary"/>
+    </entity>
+</model>
